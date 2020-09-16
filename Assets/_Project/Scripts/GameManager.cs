@@ -9,14 +9,17 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject prefab;
     [SerializeField] float spawnDistance;
+    [SerializeField] float spawnHeight;
 
     static GameManager instance;
-    static List<GameObject> spawnedExperiments = new List<GameObject>();
+    static List<GameObject> spawnedObjects = new List<GameObject>();
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
     private GameObject spawnedObject;
     private ARRaycastManager raycastManager;
     private ARPlaneManager planeManager;
     private Camera cam;
+    private Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.5f);
 
     private void Awake()
     {
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void ClearScene()
     {
-        spawnedExperiments.DestroyContent();
+        spawnedObjects.DestroyContent();
     }
 
     public static void Spawn(GameObject obj) => instance.SpawnObject(obj);
@@ -42,12 +45,35 @@ public class GameManager : MonoBehaviour
     public void SpawnObject(GameObject obj)
     {
         var spawnRotation = Quaternion.LookRotation(cam.transform.forward.Flat() * -1f, Vector3.up);
-        var spawnPosition = cam.transform.position + cam.transform.forward.FlatNormilized() * spawnDistance;
+        var spawnPosition = GetSpawnLocation();
 
         if (obj != null)
         {
             spawnedObject = Instantiate(obj, spawnPosition, spawnRotation);
-            spawnedExperiments.Add(spawnedObject);
+            spawnedObjects.Add(spawnedObject);
         }
+    }
+
+    private Vector3 GetSpawnLocation()
+    {
+        Ray ray = cam.ViewportPointToRay(screenCenter);
+
+        if (Application.isEditor)
+        {
+            int layerMask = LayerMask.GetMask("Plane");
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, layerMask))
+            {
+                return hit.point;
+            }
+        }
+        else
+        {
+            if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
+            {
+                return hits[0].pose.position;
+            }
+        }
+
+        return cam.transform.position + cam.transform.forward.FlatNormilized() * spawnDistance - new Vector3(0f, spawnHeight, 0f);
     }
 }
