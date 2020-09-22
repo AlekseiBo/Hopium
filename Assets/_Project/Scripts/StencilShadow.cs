@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class StencilShadow : MonoBehaviour
 {
     [SerializeField] GameObject shadowObject;
 
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+
+    private ARRaycastManager raycastManager;
+    private ARPlaneManager planeManager;
     GameObject body;
     private Bounds bounds;
     bool initialized;
@@ -16,19 +22,47 @@ public class StencilShadow : MonoBehaviour
             Initialize();
     }
 
+    private void Start()
+    {
+        var session = GameObject.FindGameObjectWithTag("ARSession");
+        raycastManager = session.GetComponent<ARRaycastManager>();
+        planeManager = session.GetComponent<ARPlaneManager>();
+    }
+
     public void Update()
     {
         var rayPoint = transform.position - Vector3.up * bounds.extents.y;
         Ray rayDown = new Ray(rayPoint, Vector3.down);
 
-        if (Physics.Raycast(rayDown, out RaycastHit hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
+        if (Application.isEditor)
         {
-            shadowObject.transform.position = hit.point;
-            shadowObject.SetActive(true);
+            if (Physics.Raycast(rayDown, out RaycastHit hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
+            {
+                shadowObject.transform.position = hit.point;
+                shadowObject.transform.localScale = transform.localScale / hit.distance;
+                shadowObject.SetActive(true);
+            }
+            else
+            {
+                shadowObject.SetActive(false);
+            }
         }
         else
         {
-            shadowObject.SetActive(false);
+            if (raycastManager.Raycast(rayDown, hits, TrackableType.PlaneWithinInfinity))
+            {
+                var trackable = planeManager.GetPlane(hits[0].trackableId);
+                if (trackable.alignment == PlaneAlignment.HorizontalUp)
+                {
+                    shadowObject.transform.position = hits[0].pose.position;
+                    shadowObject.transform.localScale = transform.localScale / hits[0].distance;
+                    shadowObject.SetActive(true);
+                }
+                else
+                {
+                    shadowObject.SetActive(false);
+                }
+            }
         }
     }
 

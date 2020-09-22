@@ -7,6 +7,8 @@ public class PortalEmitter : MonoBehaviour
     [SerializeField] GameObject frameObject;
     [SerializeField] bool forward;
     [SerializeField] float frequencyFromPI;
+    [SerializeField] int burstSize;
+    [SerializeField] float burstFrequency;
     [SerializeField] float speed;
     [SerializeField] float timeout;
     [SerializeField] float pulseBottom;
@@ -57,8 +59,17 @@ public class PortalEmitter : MonoBehaviour
     {
         while (true)
         {
-            Emit();
+            StartCoroutine(BurstEmmision());
             yield return wait;
+        }
+    }
+
+    IEnumerator BurstEmmision()
+    {
+        for (int i = 0; i < burstSize; i++)
+        {
+            Emit();
+            yield return new WaitForSeconds(burstFrequency);
         }
     }
 

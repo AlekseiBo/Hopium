@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  speed: 0.02
+  speed: 0.005
   axis: {x: -0.1, y: -1, z: 0}
 --- !u!114 &5688012262285247419
 MonoBehaviour:
