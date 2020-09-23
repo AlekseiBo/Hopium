@@ -44,13 +44,17 @@ public class PortalEmitter : MonoBehaviour
 
     IEnumerator Pulse()
     {
-        var amp = lineWidth - lineWidth * pulseBottom;
+        var amp = 1 - pulseBottom;
         amp /= 2f;
-        var level = lineWidth - amp;
+        var level = 1 - amp;
+        Color lineColor = Color.white;
+        float alpha = 1f;
 
         while (true)
         {
-            line.startWidth = level + amp * Mathf.Cos(2f * Time.time * frequencyFromPI);
+            alpha = level + amp * Mathf.Cos(2f * Time.time * frequencyFromPI);
+            lineColor.a = alpha;
+            line.material.SetColor("_BaseColor", lineColor);
             yield return null;
         }
     }

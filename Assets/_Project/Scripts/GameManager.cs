@@ -11,16 +11,18 @@ public class GameManager : MonoBehaviour
     [SerializeField] float spawnDistance;
     [SerializeField] float spawnHeight;
 
-    static GameManager instance;
-    static List<GameObject> spawnedObjects = new List<GameObject>();
-    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
-    static List<ARRaycastHit> groundHits = new List<ARRaycastHit>();
+    public static bool portalActivated;
 
     private GameObject spawnedObject;
     private ARRaycastManager raycastManager;
     private ARPlaneManager planeManager;
     private Camera cam;
     private Vector3 screenCenter = new Vector3(0.5f, 0.5f, 0.5f);
+
+    static GameManager instance;
+    static List<GameObject> spawnedObjects = new List<GameObject>();
+    static List<ARRaycastHit> hits = new List<ARRaycastHit>();
+    static List<ARRaycastHit> groundHits = new List<ARRaycastHit>();
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class GameManager : MonoBehaviour
         spawnedObjects.DestroyContent();
     }
 
+    public static void RegisterSpawnedObject(GameObject obj) => spawnedObjects.Add(obj);
+
     public static void Spawn(GameObject obj) => instance.SpawnObject(obj);
 
     public static void Spawn() => instance.SpawnObject(instance.prefab);
@@ -53,6 +57,8 @@ public class GameManager : MonoBehaviour
         {
             spawnedObject = Instantiate(obj, spawnPosition, spawnRotation);
             spawnedObjects.Add(spawnedObject);
+            portalActivated = true;
+            //planeManager.requestedDetectionMode = PlaneDetectionMode.None;
         }
     }
 
@@ -93,7 +99,7 @@ public class GameManager : MonoBehaviour
                     var trackable = planeManager.GetPlane(hits[0].trackableId);
                     if (trackable.alignment == PlaneAlignment.Vertical)
                     {
-                        spawnPose.rotation = Quaternion.LookRotation(hits[0].pose.rotation.eulerAngles.Flat(), Vector3.up);
+                        spawnPose.rotation = Quaternion.LookRotation(hits[0].pose.rotation.eulerAngles.Flat() * -1f, Vector3.up);
                         spawnPose.position = FindGround(hits[0].pose.position);
                     }
                     else

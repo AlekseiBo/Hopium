@@ -66,6 +66,14 @@ public class StencilShadow : MonoBehaviour
         }
     }
 
+    public void DisableShadow()
+    {
+        if (shadowObject != null)
+            Destroy(shadowObject);
+
+        Destroy(this);
+    }
+
     private void Initialize()
     {
         layerMask = LayerMask.GetMask("Plane");

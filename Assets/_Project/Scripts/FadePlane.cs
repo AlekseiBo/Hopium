@@ -57,6 +57,12 @@ public class FadePlane : MonoBehaviour
 
     private void PlaneOnBoundaryChanged(ARPlaneBoundaryChangedEventArgs obj)
     {
+        if (GameManager.portalActivated)
+        {
+            planeRenderer.material.DOFade(0f, "_TexTintColor", 0f);
+            return;
+        }
+
         planeRenderer.material.DOFade(fadeValue, "_TexTintColor", blinkTime).OnComplete(() =>
         {
             updatingPlane = true;

@@ -27,6 +27,8 @@ public class PortalFade : MonoBehaviour
     IEnumerator FadeAway()
     {
         float timer = 0f;
+        Color transparent = line.material.GetColor("_BaseColor");
+        transparent.a = 0f;
 
         if (forward)
             direction = -transform.forward;
@@ -37,6 +39,7 @@ public class PortalFade : MonoBehaviour
         {
             transform.Translate(direction * speed * Time.deltaTime, Space.World);
             line.startWidth = Mathf.Lerp(lineWidth, 0f, timer);
+            line.material.SetColor("_BaseColor", Color.Lerp(Color.white, transparent, timer));
             timer += Time.deltaTime / timeout;
             yield return null;
         }

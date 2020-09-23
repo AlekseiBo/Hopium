@@ -276,4 +276,4 @@ MonoBehaviour:
   burstFrequency: 0.2
   speed: 1
   timeout: 6
-  pulseBottom: 0.3
+  pulseBottom: 0.2
