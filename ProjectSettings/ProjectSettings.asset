@@ -127,9 +127,7 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 1.0
-  preloadedAssets:
-  - {fileID: 4800000, guid: e7c77f6eaab324a819efdc13b8125a39, type: 3}
-  - {fileID: 5774034569416515026, guid: 3c39a9ce341414c8392bab49c8c9a9ed, type: 2}
+  preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -176,7 +174,7 @@ PlayerSettings:
     Standalone: com.unity.arfoundation.samples
     iPhone: com.dimira.countertapp
   buildNumber:
-    iPhone: 13
+    iPhone: 16
   AndroidBundleVersionCode: 12
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0

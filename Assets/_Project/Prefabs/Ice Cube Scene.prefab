@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1528922268143472453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3493338370885806032}
+  m_Layer: 0
+  m_Name: Rock Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3493338370885806032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528922268143472453}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5629524995835763621}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3045165166993025529
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5629524995835763621}
+  - component: {fileID: 5371202844880921888}
+  m_Layer: 0
+  m_Name: Ice Cube Scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5629524995835763621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045165166993025529}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 174538676588225091}
+  - {fileID: 3493338370885806032}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5371202844880921888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045165166993025529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcf1b72eca8447adae1fed2bdcf6b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iceRockPrefab: {fileID: 7831714401744110637, guid: 6857e08aab2c4434fbd41a78ba1bef4e,
+    type: 3}
+  iceRockContainer: {fileID: 3493338370885806032}
+  instantiateTimeout: 0.05
+  grid:
+    xCount: 5
+    zCount: 5
+    yCount: 5
+    yBase: 0.5
+    yStep: 1.5
+    xStep: 1.75
+    zStep: 1.75
+--- !u!1001 &8943845492930921113
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5629524995835763621}
+    m_Modifications:
+    - target: {fileID: 7831714401744110637, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_Name
+      value: Augment Ice Of Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc6e614ba10a8431b8a8ea64bdca8e58, type: 3}
+--- !u!4 &174538676588225091 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9111619971569148122, guid: cc6e614ba10a8431b8a8ea64bdca8e58,
+    type: 3}
+  m_PrefabInstance: {fileID: 8943845492930921113}
+  m_PrefabAsset: {fileID: 0}

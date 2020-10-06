@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
             spawnedObject = Instantiate(obj, spawnPosition, spawnRotation);
             spawnedObjects.Add(spawnedObject);
             portalActivated = true;
-            //planeManager.requestedDetectionMode = PlaneDetectionMode.None;
+            planeManager.requestedDetectionMode = PlaneDetectionMode.Vertical;
         }
     }
 
