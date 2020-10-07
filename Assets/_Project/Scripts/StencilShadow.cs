@@ -11,10 +11,11 @@ public class StencilShadow : MonoBehaviour
 
     private ARRaycastManager raycastManager;
     private ARPlaneManager planeManager;
-    GameObject body;
+    private Rigidbody body;
+    private Quaternion shadowRotation;
     private Bounds bounds;
-    bool initialized;
-    int layerMask;
+    private bool initialized;
+    private int layerMask;
 
     void Awake()
     {
@@ -31,15 +32,17 @@ public class StencilShadow : MonoBehaviour
 
     public void Update()
     {
-        var rayPoint = transform.position - Vector3.up * bounds.extents.y;
+        var rayPoint = bounds.center;
         Ray rayDown = new Ray(rayPoint, Vector3.down);
+        Debug.DrawRay(rayDown.origin, rayDown.direction, Color.red, 0f);
 
         if (Application.isEditor)
         {
             if (Physics.Raycast(rayDown, out RaycastHit hit, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
             {
                 shadowObject.transform.position = hit.point;
-                shadowObject.transform.localScale = transform.localScale / hit.distance;
+                shadowObject.transform.localScale = Vector3.Min(Vector3.one, Vector3.one / hit.distance);
+                shadowObject.transform.rotation = shadowRotation;
                 shadowObject.SetActive(true);
             }
             else
@@ -55,7 +58,8 @@ public class StencilShadow : MonoBehaviour
                 if (trackable.alignment == PlaneAlignment.HorizontalUp)
                 {
                     shadowObject.transform.position = hits[0].pose.position;
-                    shadowObject.transform.localScale = transform.localScale / hits[0].distance;
+                    shadowObject.transform.localScale = Vector3.Min(Vector3.one, Vector3.one / hits[0].distance);
+                    shadowObject.transform.rotation = shadowRotation;
                     shadowObject.SetActive(true);
                 }
                 else
@@ -76,11 +80,13 @@ public class StencilShadow : MonoBehaviour
 
     private void Initialize()
     {
+        shadowRotation = shadowObject.transform.rotation;
+
         layerMask = LayerMask.GetMask("Plane");
 
-        body = GetComponentInParent<Rigidbody>().gameObject;
+        body = GetComponentInParent<Rigidbody>();
 
-        bounds = new Bounds(transform.position, Vector3.zero);
+        bounds = new Bounds(body.transform.position, Vector3.zero);
         foreach (Collider next in body.GetComponentsInChildren<Collider>(true))
         {
             if (!next.isTrigger)

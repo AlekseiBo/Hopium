@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlanePrefab: {fileID: 1585201990951412, guid: 617b10198100d44078c5e70d97423117,
     type: 3}
-  m_DetectionMode: -1
+  m_DetectionMode: 1
 --- !u!114 &1335839538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,8 +1572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5141e8a953b34c66b17692cba669c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  spawnDistance: 1
+  prefab: {fileID: 3045165166993025529, guid: 6ea5fd2d58f6945bea0afd7ecb1916ec, type: 3}
+  spawnDistance: 1.5
   spawnHeight: 1.5
 --- !u!1 &1485925338
 GameObject:

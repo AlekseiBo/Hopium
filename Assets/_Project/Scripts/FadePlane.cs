@@ -9,8 +9,6 @@ public class FadePlane : MonoBehaviour
     [SerializeField] float blinkTime = 0.25f;
     [SerializeField] float fadeValue = 0.7f;
 
-    const float boundaryTimeout = 1f;
-
     ARPlane plane;
     Renderer planeRenderer;
     float timer = 0;

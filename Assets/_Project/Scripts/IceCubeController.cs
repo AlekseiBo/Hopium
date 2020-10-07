@@ -55,7 +55,8 @@ public class IceCubeController : MonoBehaviour
 
                     if ((y == 0 || y == 1) &&
                         x == Mathf.RoundToInt(grid.xCount / 2f) &&
-                        z == Mathf.RoundToInt(grid.zCount / 2f))
+                        (z == Mathf.RoundToInt(grid.zCount / 2f) ||
+                        z == Mathf.RoundToInt(grid.zCount / 2f) - 1))
                         continue;
 
                     float yPos = grid.yBase + y * grid.yStep;
@@ -68,7 +69,7 @@ public class IceCubeController : MonoBehaviour
 
                     if (y != 0)
                     {
-                        rock.GetComponentInChildren<StencilShadow>(true).DisableShadow();
+                        rock.GetComponentInChildren<StencilShadow>(true)?.DisableShadow();
                     }
 
                     yield return timer;

@@ -34,6 +34,14 @@ public class GameManager : MonoBehaviour
         raycastManager = GetComponent<ARRaycastManager>();
         planeManager = GetComponent<ARPlaneManager>();
         cam = Camera.main;
+
+        planeManager.planesChanged += PlanesChanged;
+    }
+
+    private void PlanesChanged(ARPlanesChangedEventArgs obj)
+    {
+        Spawn();
+        planeManager.planesChanged -= PlanesChanged;
     }
 
     public void ClearScene()
@@ -58,7 +66,7 @@ public class GameManager : MonoBehaviour
             spawnedObject = Instantiate(obj, spawnPosition, spawnRotation);
             spawnedObjects.Add(spawnedObject);
             portalActivated = true;
-            planeManager.requestedDetectionMode = PlaneDetectionMode.Vertical;
+            planeManager.requestedDetectionMode = PlaneDetectionMode.None;
         }
     }
 
@@ -163,5 +171,10 @@ public class GameManager : MonoBehaviour
                 return new Vector3(point.x, cam.transform.position.y - spawnHeight, point.z);
             }
         }
+    }
+
+    private void OnDestroy()
+    {
+        planeManager.planesChanged -= PlanesChanged;
     }
 }
