@@ -835,26 +835,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2
---- !u!114 &5895241657673544104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7831714401744110637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7c91b26689a054d88448aba6dfe424, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Use:
-    Filter: 0
-    IgnoreStartedOverGui: 1
-    RequiredFingerCount: 0
-    RequiredMouseButtons: 0
-    RequiredSelectable: {fileID: 6095817937841394842}
-  Axis: {x: 0, y: -1, z: 0}
-  Space: 1
 --- !u!1 &8359091832202469257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,11 +1281,6 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2304142106895348563, guid: 871bac4f233a643739749886dfaee3f0,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 5471728146845305444, guid: 871bac4f233a643739749886dfaee3f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1366,26 +1341,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Augment Ice Of Origin
       objectReference: {fileID: 0}
+    - target: {fileID: 6991050943298993700, guid: 871bac4f233a643739749886dfaee3f0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 871bac4f233a643739749886dfaee3f0, type: 3}
---- !u!1 &7831714401744110637 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6427295370006998675, guid: 871bac4f233a643739749886dfaee3f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3863386806670289598}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6095817937841394842 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6991050943298993700, guid: 871bac4f233a643739749886dfaee3f0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3863386806670289598}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7831714401744110637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83dcd8dace8b7fe449d796b980cb121d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &9111619971569148122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5471728146845305444, guid: 871bac4f233a643739749886dfaee3f0,

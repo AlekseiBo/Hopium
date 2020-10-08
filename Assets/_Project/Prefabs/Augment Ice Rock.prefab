@@ -155,6 +155,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 550397390831899779, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4927828573606937502, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
         type: 3}
       propertyPath: m_Enabled
@@ -164,6 +169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IceRock
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369746454072178438, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6790053839647180362, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
         type: 3}
@@ -219,6 +229,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114566126551313971, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986017326000014606, guid: 04dc666609b2e4d88bb68c6332ad2dbc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04dc666609b2e4d88bb68c6332ad2dbc, type: 3}

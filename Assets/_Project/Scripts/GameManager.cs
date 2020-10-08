@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject prefab;
     [SerializeField] float spawnDistance;
     [SerializeField] float spawnHeight;
+    [SerializeField] bool spawnAtSight;
 
     public static bool portalActivated;
 
@@ -81,7 +82,7 @@ public class GameManager : MonoBehaviour
         if (Application.isEditor)
         {
             int layerMask = LayerMask.GetMask("Plane");
-            if (Physics.Raycast(ray, out RaycastHit hit, spawnDistance, layerMask))
+            if (spawnAtSight && Physics.Raycast(ray, out RaycastHit hit, spawnDistance, layerMask))
             {
                 if (hit.collider.name == "Vertical")
                 {
@@ -95,12 +96,13 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                spawnPose.position = FindGroundEditor(ray.GetPoint(spawnDistance), layerMask);
+                spawnPose.position = cam.transform.position + cam.transform.forward.FlatNormilized() * spawnDistance;
+                spawnPose.position = FindGroundEditor(spawnPose.position, layerMask);
             }
         }
         else
         {
-            if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
+            if (spawnAtSight && raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
             {
                 if (hits[0].distance < spawnDistance)
                 {
@@ -117,12 +119,14 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    spawnPose.position = FindGround(ray.GetPoint(spawnDistance));
+                    spawnPose.position = cam.transform.position + cam.transform.forward.FlatNormilized() * spawnDistance;
+                    spawnPose.position = FindGround(spawnPose.position);
                 }
             }
             else
             {
-                spawnPose.position = FindGround(ray.GetPoint(spawnDistance));
+                spawnPose.position = cam.transform.position + cam.transform.forward.FlatNormilized() * spawnDistance;
+                spawnPose.position = FindGround(spawnPose.position);
             }
         }
 

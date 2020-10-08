@@ -176,7 +176,7 @@ PlayerSettings:
     Standalone: com.unity.arfoundation.samples
     iPhone: com.dimira.countertapp
   buildNumber:
-    iPhone: 15
+    iPhone: 16
   AndroidBundleVersionCode: 12
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 0
