@@ -6,13 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class RingController : MonoBehaviour
 {
-    [SerializeField] float radius;
-    [SerializeField] int segments;
+    [SerializeField] protected float radius;
+    [SerializeField] protected int segments;
 
-    private Sequence sequence;
-    private LineRenderer line;
+    protected Sequence sequence;
+    protected LineRenderer line;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         line = GetComponent<LineRenderer>();
         SetAnimation();
@@ -21,15 +21,15 @@ public class RingController : MonoBehaviour
 
     // private void Start() => PlaySequence();
 
-    private void OnValidate() => FormRing();
+    protected void OnValidate() => FormRing();
 
-    public void PlaySequence()
+    protected virtual void PlaySequence()
     {
         if (!sequence.playedOnce)
             sequence.Play();
     }
 
-    private void SetAnimation()
+    protected virtual void SetAnimation()
     {
         sequence = DOTween.Sequence();
         transform.SetLocalScale(0f);
@@ -40,7 +40,7 @@ public class RingController : MonoBehaviour
     }
 
     [ContextMenu("Form ring")]
-    private void FormRing()
+    protected virtual void FormRing()
     {
         if (line == null)
             line = GetComponent<LineRenderer>();

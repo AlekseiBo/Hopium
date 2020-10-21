@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 606280291080465886}
   - component: {fileID: 606280291080465888}
   m_Layer: 0
-  m_Name: GlowRing
+  m_Name: BaseRing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

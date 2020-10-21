@@ -25,7 +25,7 @@ public class FloatingBody : MonoBehaviour
 
     private void OnEnable()
     {
-        transform.rotation = Quaternion.Euler(0f, Random.Range(0f, 359f), 0f);
+        transform.rotation = Quaternion.Euler(0f, Random.Range(0, 359), 0f);
         displacement = Random.Range(minVertical, maxVetical);
 
         UpdateLevel();
