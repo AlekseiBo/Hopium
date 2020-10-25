@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbitRadius: 3
-  minSpeed: 0.9
-  maxSpeed: 1.1
+  minSpeed: 0.5
+  maxSpeed: 0.7
   avoidanceDistance: 1
 --- !u!1001 &3863386806670289598
 PrefabInstance:

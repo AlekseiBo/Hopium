@@ -322,16 +322,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlaySequence
-        m_Mode: 1
+      - m_Target: {fileID: 5430329265612999852}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &3567527943542852905
 GameObject:
@@ -455,7 +455,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -0.05, y: 0}
+  m_SizeDelta: {x: -0.040000003, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4960255269945377136
 MonoBehaviour:
@@ -1039,7 +1039,7 @@ PrefabInstance:
     - target: {fileID: 4658005160623534124, guid: 74c13dfec38804c0c8998fc0ffdb56ae,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4658005160623534124, guid: 74c13dfec38804c0c8998fc0ffdb56ae,
         type: 3}
@@ -1262,6 +1262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OriginRock
       objectReference: {fileID: 0}
+    - target: {fileID: 3568271092944005820, guid: 89db9a9b3f4524c6e8283db4c8b20bcf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 20363ed916dfb4ec9815018a2a1cdf2a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89db9a9b3f4524c6e8283db4c8b20bcf, type: 3}
 --- !u!1001 &3863386806670289598
@@ -1691,13 +1696,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: RingEmmiter
       objectReference: {fileID: 0}
+    - target: {fileID: 606280291080465889, guid: 23d84ae7adc554a60961aceba0bc45c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2683756533821335178, guid: 23d84ae7adc554a60961aceba0bc45c2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 8efe4c167152e4d6a85a4035faece5f3, type: 2}
+    - target: {fileID: 5750666357434458470, guid: 23d84ae7adc554a60961aceba0bc45c2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23d84ae7adc554a60961aceba0bc45c2, type: 3}
+--- !u!1 &5430329265612999852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 606280291080465889, guid: 23d84ae7adc554a60961aceba0bc45c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4842943018857046349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5621720203456141911
 PrefabInstance:
   m_ObjectHideFlags: 0

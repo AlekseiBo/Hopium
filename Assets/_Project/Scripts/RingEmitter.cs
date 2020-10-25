@@ -69,8 +69,8 @@ public class RingEmitter : MonoBehaviour
     {
         while (true)
         {
-            Emit();
             yield return wait;
+            Emit();
         }
     }
 

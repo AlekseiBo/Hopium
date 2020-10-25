@@ -34,7 +34,6 @@ public class StencilShadow : MonoBehaviour
     {
         var rayPoint = bounds.center;
         Ray rayDown = new Ray(rayPoint, Vector3.down);
-        Debug.DrawRay(rayDown.origin, rayDown.direction, Color.red, 0f);
 
         if (Application.isEditor)
         {

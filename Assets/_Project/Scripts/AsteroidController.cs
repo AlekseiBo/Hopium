@@ -37,7 +37,7 @@ public class AsteroidController : MonoBehaviour
         var flowDir = Vector3.Cross((parent.position - transform.position), parent.up).normalized * speed;
         var asteroidDir = (beltPoint + flowDir - transform.position).normalized;
 
-        Debug.DrawRay(transform.position, asteroidDir, Color.red, 0.1f);
+        //Debug.DrawRay(transform.position, asteroidDir, Color.red, 0.1f);
 
         body.AddForce(asteroidDir * speed, ForceMode.Acceleration);
     }

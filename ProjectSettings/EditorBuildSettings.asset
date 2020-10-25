@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/IceCubeMain.unity
-    guid: 31809186954ef47ec9f5283eca74d7e7
+    path: Assets/_Project/Scenes/IceRingMain.unity
+    guid: 7f18788432d52475f962d15d66219b58
   m_configObjects:
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: bc51da284417e40e1af9e7ad3279340e,
       type: 2}
